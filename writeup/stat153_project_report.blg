@@ -1,0 +1,5 @@
+[0] Config.pm:354> INFO - This is Biber 2.7
+[0] Config.pm:357> INFO - Logfile is 'stat153_project_report.blg'
+[60] biber-darwin:303> INFO - === Mon Apr  9, 2018, 10:47:33
+[93] Biber.pm:359> INFO - Reading 'stat153_project_report.bcf'
+[191] Utils.pm:164> WARN - No data sources defined!

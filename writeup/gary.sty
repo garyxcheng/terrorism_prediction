@@ -1,0 +1,130 @@
+% 
+% (c) Gary Cheng
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{gary}
+  [2018/01/29 v0.01 LaTeX package for my own purpose]
+
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\definecolor{lightblue}{RGB}{0,111,222}
+
+\mdtheorem[
+  hidealllines=true,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=12pt,%
+  backgroundcolor=lightblue!20,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip]{theorem}{Theorem}
+\mdtheorem[
+  hidealllines=true,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=12pt,%
+  backgroundcolor=lightblue!20,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip]{mydef}{Definition}
+\mdtheorem[
+  hidealllines=true,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=12pt,%
+  backgroundcolor=lightblue!20,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip]{claim}{Claim}
+\mdtheorem[
+  hidealllines=true,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=12pt,%
+  backgroundcolor=lightblue!20,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip]{lemma}{Lemma}
+\mdtheorem[
+  linecolor=black,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=12pt,%
+  backgroundcolor=white,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip]{example}{Example}
+\mdtheorem[
+  linecolor=black,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=0pt,%
+  innerbottommargin=12pt,%
+  backgroundcolor=white,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip]{remark}{Remark}
+%\newmdenv[linecolor=black,frametitle=Example, backgroundcolor=lightblue!20]{example}
+\mdtheorem[
+  hidealllines=true,
+  innerleftmargin=8pt,%
+  innerrightmargin=8pt,%
+  innertopmargin=12pt,%
+  innerbottommargin=12pt,%
+  backgroundcolor=lightblue!20,%
+  skipbelow=\baselineskip,%
+  skipabove=\baselineskip]{cor}{Corollary}
+
+
+% \newtheoremstyle{garystyle}% name of the style to be used
+%   {\topsep}% measure of space to leave above the theorem. E.g.: 3pt
+%   {\topsep}% measure of space to leave below the theorem. E.g.: 3pt
+%   {}% name of font to use in the body of the theorem
+%   {0pt}% measure of space to indent
+%   {\bfseries}% name of head font
+%   {. ---}% punctuation between head and body
+%   { }% space after theorem head; " " = normal interword space
+%   {}% Manually specify head
+% \theoremstyle{garystyle}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{mydef}{Definition}
+%\newtheorem{claim}{Claim}
+
+\usepackage{amsmath}
+\usepackage{breqn}
+\usepackage{datetime}
+\usepackage{amssymb}
+\usepackage{parskip}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\corr}{Corr}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\pr}{\mathbb{P}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage[
+    backend=biber,
+    style=numeric,
+    sortlocale=de_DE,
+    natbib=true,
+    url=false, 
+    doi=true,
+    eprint=false
+]{biblatex}
+
+\endinput
+%%
+%% End of file `mypackage.sty'.
