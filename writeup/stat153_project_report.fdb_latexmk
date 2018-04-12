@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber stat153_project_report"] 1523296052 "stat153_project_report.bcf" "stat153_project_report.bbl" "stat153_project_report" 1523296146
-  "stat153_project_report.bcf" 1523296113 94447 4fea5e138257d295e0f3ec8b375c4f29 ""
+["biber stat153_project_report"] 1523296052 "stat153_project_report.bcf" "stat153_project_report.bbl" "stat153_project_report" 1523296351
+  "stat153_project_report.bcf" 1523296351 94447 4fea5e138257d295e0f3ec8b375c4f29 ""
   (generated)
-  "stat153_project_report.blg"
   "stat153_project_report.bbl"
-["pdflatex"] 1523296112 "stat153_project_report.tex" "stat153_project_report.pdf" "stat153_project_report" 1523296146
+  "stat153_project_report.blg"
+["pdflatex"] 1523296349 "stat153_project_report.tex" "stat153_project_report.pdf" "stat153_project_report" 1523296351
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1480098698 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -120,15 +120,15 @@
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1495593487 4129592 0e6cfee100d68e6d96b92c0258f2ff73 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
   "gary.sty" 1523295898 3384 ff0d7ca76ed7182ac37f9fe03789daee ""
-  "stat153_project_report.aux" 1523296113 1796 eda5694a8cb1f7bd63d224b1934bc2a6 ""
+  "stat153_project_report.aux" 1523296351 1796 eda5694a8cb1f7bd63d224b1934bc2a6 ""
   "stat153_project_report.bbl" 1523296053 0 d41d8cd98f00b204e9800998ecf8427e "biber stat153_project_report"
-  "stat153_project_report.out" 1523296113 225 a4a599de9b27ec5abf701f43d381a8b6 ""
-  "stat153_project_report.run.xml" 1523296113 2384 857f1f6159f9c5eefd9ceb4a6e0e03a4 ""
-  "stat153_project_report.tex" 1523296145 267 7df39eba14b8993d1520964fd420677c ""
+  "stat153_project_report.out" 1523296351 225 a4a599de9b27ec5abf701f43d381a8b6 ""
+  "stat153_project_report.run.xml" 1523296351 2384 857f1f6159f9c5eefd9ceb4a6e0e03a4 ""
+  "stat153_project_report.tex" 1523296349 280 2b0c693f044de6fb6aefa6f21820fd32 ""
   (generated)
   "stat153_project_report.pdf"
   "stat153_project_report.aux"
-  "stat153_project_report.log"
+  "stat153_project_report.run.xml"
   "stat153_project_report.bcf"
   "stat153_project_report.out"
-  "stat153_project_report.run.xml"
+  "stat153_project_report.log"

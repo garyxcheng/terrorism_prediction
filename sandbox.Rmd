@@ -35,6 +35,10 @@ adf.test(diff(log_terror4))
 ```
 
 ```{r}
+mvspec(log_terror4)
+```
+
+```{r}
 ts.plot(diff(terror4))
 ts.plot(diff(log_terror4))
 acf(diff(log_terror4))
@@ -43,9 +47,14 @@ pacf(diff(log_terror4))
 
 
 ```{r}
-eacf(diff(log_terror4))
-sarima(log_terror4, 1, 1, 0)
+eacf(diff(terror4))
 ```
+
+```{r}
+eacf(diff(log_terror4))
+sarima(terror4, 2, 1, 2)
+```
+
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
 
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
