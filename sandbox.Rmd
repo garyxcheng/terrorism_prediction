@@ -20,39 +20,41 @@ library(tsoutliers)
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
 
 ```{r}
-terror2 <- read.csv("input/editted_input.csv")
+terror2 <- read.csv("input/num_casualities_greater_than_10.csv")
 terror3 <- na.interpolation(terror2$num.attacks, option="spline")
+#terror3 <- na.kalman(terror2$num.attacks, model="auto.arima")
 ts.plot(ts(terror3))
 #ts.plot(terror2$num.attacks)
 outlier_terror3 <- tso(ts(terror3), types = c("TC", "AO", "IO"))
-outlier_terror3
+plot(outlier_terror3)
 ```
 
 ```{r}
 terror4 <- outlier_terror3$yadj
 log_terror4 <- log(outlier_terror3$yadj)
-adf.test(diff(log_terror4))
+adf.test(diff(terror4))
+ts.plot(log_terror4)
 ```
 
 ```{r}
-mvspec(log_terror4)
+mvspec(log_terror4, log="no")
 ```
 
 ```{r}
-ts.plot(diff(terror4))
-ts.plot(diff(log_terror4))
-acf(diff(log_terror4))
-pacf(diff(log_terror4))
+ts.plot(diff(diff(terror4)))
+ts.plot(diff(diff(log_terror4)))
+acf(diff(terror4))
+pacf(diff(terror4))
 ```
 
 
 ```{r}
-eacf(diff(terror4))
+eacf(diff(diff(terror4)))
 ```
 
 ```{r}
-eacf(diff(log_terror4))
-sarima(terror4, 2, 1, 2)
+#eacf(diff(diff(log_terror4)))
+sarima(terror4, 0, 2, 2)
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.

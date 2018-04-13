@@ -7,6 +7,9 @@ terror.rename(columns={'iyear':'Year','imonth':'Month','iday':'Day','country_txt
 terror=terror[['Year','Month','Day','Country','Region','city','latitude','longitude','AttackType','Killed','Wounded','Target','Summary','Group','Target_type','Weapon_type','Motive']]
 terror['casualities']=terror['Killed']+terror['Wounded']
 
+#terror = terror[terror["Country"] == "United States"]
+terror = terror[terror["casualities"] >= 10]
+
 #This is a basic table
 terror = terror[["Year", "Month", "Killed", "Wounded", "casualities"]]
 
@@ -24,4 +27,4 @@ sub_terror_1993["Year"] = sub_terror_1993["Year"].astype(int)
 sub_terror_1993["Month"] = sub_terror_1993["Month"].astype(int)
 
 terror2 = pd.concat([terror1[:276], sub_terror_1993, terror1[276:]]).reset_index().drop(["index"], axis=1)
-terror2.to_csv("./input/editted_input.csv", index=False)
+terror2.to_csv("./input/num_casualities_united_states.csv", index=False)
