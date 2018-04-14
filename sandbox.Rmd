@@ -20,10 +20,14 @@ library(tsoutliers)
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
 
 ```{r}
-terror2 <- read.csv("input/num_casualities_greater_than_10.csv")
+terror2 <- read.csv("input/og_num_casualities_greater_than_10.csv")
 terror3 <- na.interpolation(terror2$num.attacks, option="spline")
 #terror3 <- na.kalman(terror2$num.attacks, model="auto.arima")
+cuttoff.index <- length(terror3) - 47 #floor(0.1 * length(terror3))
+terror3.valid <- terror3[cuttoff.index : length(terror3)]
+terror3 <- terror3[1: cuttoff.index]
 ts.plot(ts(terror3))
+ts.plot(ts(terror3.valid))
 #ts.plot(terror2$num.attacks)
 outlier_terror3 <- tso(ts(terror3), types = c("TC", "AO", "IO"))
 plot(outlier_terror3)
@@ -31,16 +35,21 @@ plot(outlier_terror3)
 
 ```{r}
 terror4 <- outlier_terror3$yadj
-log_terror4 <- log(outlier_terror3$yadj)
+#log_terror4 <- log(outlier_terror3$yadj)
 adf.test(diff(terror4))
-ts.plot(log_terror4)
+ts.plot(diff(terror4))
+ts.plot(diff(diff(terror4)))
 ```
 
 ```{r}
-mvspec(log_terror4, log="no")
+m = floor(sqrt(length(diff(terror4))))
+mvspec(diff(terror4), log="no")
+mvspec(diff(terror4), kernel('daniell', m), log="no")
+#mvspec(diff(log_terror4),  kernel('daniell', m), log="no")
 ```
 
 ```{r}
+for 
 ts.plot(diff(diff(terror4)))
 ts.plot(diff(diff(log_terror4)))
 acf(diff(terror4))
@@ -49,17 +58,28 @@ pacf(diff(terror4))
 
 
 ```{r}
+eacf(diff(terror4))
 eacf(diff(diff(terror4)))
 ```
 
 ```{r}
 #eacf(diff(diff(log_terror4)))
-sarima(terror4, 0, 2, 2)
+terror5 <- terror4
+total_error <- 0
+for (i in 1: (length(terror3.valid) - 11))
+{
+  actual <- terror3.valid[i : i + 11]
+  predicted <- sarima.for(terror5, 12, 0, 1, 1, 1, 0, 0, 4)$pre
+  total_error <- total_error + sum((actual - predicted)^2)
+  terror5 <- c(terror5, terror3.valid[i]) 
+}
+
+mse <- total_error / (length(terror3.valid) - 11)
+
+#sarima.for(terror4, 12, 0, 1, 1, 1, 0, 0, 4)$pred
+
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+```{r}
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
-
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
-
+```
