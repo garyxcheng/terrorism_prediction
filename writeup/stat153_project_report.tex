@@ -11,4 +11,22 @@
 \section{Results}
 \section{Discussion}
 \section{Conclusion}
+
+From the 
+
+\begin{tabular}{}
+SARIMA                  & AIC   &AICc   &BIC    &MSE
+(0, 1, 1)               & 5.248 &5.252  &4.265  &14907
+(0, 1, 1, 1, 0, 1, 4)   & 5.237 &5.241  &4.270  &14578.57 Small p-values and passes ljung box
+p-values on seasonal ar1 and ma1; passes ljung box
+(0, 1, 1, 1, 1, 1, 4)   & 5.249 &5.254  &4.274  &14183.01
+(0, 1, 1, 1, 1, 2, 4)   & 5.242 &5.246  &4.275  &14934.03
+
+(1, 1, 2)               & 5.256 & 5.260 &4.288  &15044.47
+(1, 1, 2, 1, 0, 1, 4)   & 5.243 &5.247  &4.292  &15130.19 Large p-values on ma2, small 
+(1, 1, 2, 1, 1, 1, 4)   & 5.252 & 5.257 &4.294  &15197.85
+(1, 1, 2, 1, 1, 2, 4)   & 5.250 & 5.254 & 4.299 &15074.55
+\end{tabular}
+
+For (terror4, 0, 1, 4, 1, 0, 1, 4) only ma1 coefficient was significant; it did pass ljung box.
 \end{document} 
