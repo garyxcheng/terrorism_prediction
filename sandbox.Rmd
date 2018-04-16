@@ -5,10 +5,6 @@ output:
   html_notebook: default
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-What does Ljung box-statistic do; should they be significant or not? Should residuals look normal? Are the * in eacf mean its significant? What should ACF look like for stationarity?
-
 ```{r}
 library(TSA)
 library(tseries)
@@ -18,27 +14,21 @@ library(tsoutliers)
 library(xts)
 ```
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
-
+# Interpolating Data
+Here we interpolate our missing data with a linear model.
 ```{r}
-
 terror2 <- read.csv("input/og_num_casualities_greater_than_10.csv")
 terror3 <- na.interpolation(terror2$num.attacks.with.kill.thresh, option="linear")
 plot(as.xts(ts(terror3, frequency = 12, start=1970)), main = "Number of Terrorist Attacks (w/ Linear Imputed Data)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years", ylim=c(0, 225), col="red")
-#pdf("image/og_ts.pdf")
+pdf("image/og_ts.pdf")
 lines(as.xts(ts(terror2$num.attacks.with.kill.thresh, frequency = 12, start=1970)), col="black", lwd=1.2)
-#dev.off()
+dev.off()
 ```
 
+# Removing outliers
 ```{r}
-#pdf("image/imputed_ts.pdf")
-#plot(as.xts(ts(terror3, frequency = 12, start=1970)), main = "Number of Terrorist Attacks (w/ Linear Imputed Data)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years", ylim=c(0, 225))
-#dev.off()
-
-
 outlier_terror3 <- tso(ts(terror3), types = c("TC", "AO", "IO"))
 plot(outlier_terror3)
-
 
 #plot outlier effects
 pdf("image/outlier_effects.pdf")
@@ -58,10 +48,12 @@ points(xts.terror3[547], col="red",pch=19, cex=1)
 pdf("image/outlier_comparison.pdf")
 points(xts.terror3[556], col="red",pch=19, cex=1)
 dev.off()
+```
 
 
+# Making, Training, and Validation set
+```{r}
 terror4 <- outlier_terror3$yadj
-
 
 #terror3 <- na.kalman(terror2$num.attacks, model="auto.arima")
 cuttoff.index <- length(terror4) - 48 #floor(0.1 * length(terror3))
@@ -75,6 +67,7 @@ terror4 <- terror4[1: cuttoff.index]
 #plot(as.xts(ts(terror4.valid, frequency = 12, start=1970)), main = "Number of Terrorist Attacks (Validation Set)", major.format = "%Y-%m", grid.col="white", lwd=1)
 ```
 
+#Chasing Stationarity
 ```{r}
 #log_terror4 <- log(outlier_terror3$yadj)
 adf.test(terror4, k=1)
@@ -91,18 +84,6 @@ dev.off()
 
 #ts.plot(diff(terror4))
 #ts.plot(diff(diff(terror4)))
-```
-
-```{r}
-m = floor(sqrt(length(diff(terror4))))
-pdf("image/raw_periodogram.pdf")
-mvspec(diff(terror4), log="no", main="Raw Periodogram", cex.main=1.5)
-dev.off()
-
-pdf("image/smooth_tapered_periodogram.pdf")
-mvspec(diff(terror4), kernel('daniell', m), log="no", taper=0.1, main="Smoothed and Tapered Periodogram")
-dev.off()
-#mvspec(diff(log_terror4),  kernel('daniell', m), log="no")
 ```
 
 ```{r}
@@ -129,44 +110,76 @@ dev.off()
 ```
 
 
+#Periodogram; Figuring out Seasonality
+```{r}
+m = floor(sqrt(length(diff(terror4))))
+pdf("image/raw_periodogram.pdf")
+mvspec(diff(terror4), log="no", main="Raw Periodogram", cex.main=1.5)
+dev.off()
+
+pdf("image/smooth_tapered_periodogram.pdf")
+mvspec(diff(terror4), kernel('modified.daniell', m), log="no", taper=0.1, main="Smoothed and Tapered Periodogram")
+dev.off()
+#mvspec(diff(log_terror4),  kernel('daniell', m), log="no")
+```
+
+
+# Finding which model to use
 ```{r}
 eacf(diff(terror4))
 eacf(diff(diff(terror4)))
 ```
 
 ```{r}
-sarima(terror4, 0, 1, 1)
-sarima(terror4, 0, 1, 1, 1, 0, 1, 4)
-sarima(terror4, 0, 1, 1, 1, 1, 1, 4)
-sarima(terror4, 0, 1, 1, 1, 1, 2, 4)
-
-sarima(terror4, 1, 1, 2)
-sarima(terror4, 1, 1, 2, 1, 0, 1, 4)
-sarima(terror4, 1, 1, 2, 1, 1, 1, 4)
-sarima(terror4, 1, 1, 2, 1, 1, 2, 4)
+sarima(terror4, 1, 1, 1)
+# sarima(terror4, 0, 1, 1, 1, 0, 1, 4)
+# sarima(terror4, 0, 1, 1, 1, 1, 1, 4)
+# sarima(terror4, 0, 1, 1, 1, 1, 2, 4)
+# 
+# sarima(terror4, 0, 1, 1, 1, 0, 1, 3)
+# sarima(terror4, 0, 1, 1, 1, 1, 1, 3)
+# sarima(terror4, 0, 1, 1, 1, 1, 2, 3)
+# 
+# sarima(terror4, 1, 1, 2)
+# sarima(terror4, 1, 1, 2, 1, 0, 1, 4)
+# sarima(terror4, 1, 1, 2, 1, 1, 1, 4)
+# sarima(terror4, 1, 1, 2, 1, 1, 2, 4)
+# sarima(terror4, 1, 1, 2, 1, 0, 1, 3)
+# sarima(terror4, 1, 1, 2, 1, 1, 1, 3)
+# sarima(terror4, 1, 1, 2, 1, 1, 2, 3)
 ```
 
 
 ```{r}
+pdf("image/best_model.pdf")
+sarima(terror4, 0, 1, 1, 0, 0, 0, 0)
+dev.off()
+```
+
+
+### MSE calculations
+```{r}
 #eacf(diff(diff(log_terror4)))
 terror5 <- terror4
 total_error <- 0
-for (i in 1: (length(terror4.valid) - 11))
+start_pts <- c(1, 13, 25)
+for (i in start_pts)
 {
-  actual <- terror4.valid[i : i + 11]
-  predicted <- sarima.for(terror5, 12, 0, 1, 1, 0, 0, 0, 0) $pred
+  actual <- terror4.valid[i : (i + 11)]
+  predicted <- sarima.for(terror5, 12, 0, 1, 1, 1, 1, 1, 3)$pred
   total_error <- total_error + sum((actual - predicted)^2)
-  terror5 <- c(terror5, terror4.valid[i]) 
+  terror5 <- c(terror5, terror4.valid[i : (i + 11)]) 
 }
 
-mse <- total_error / (length(terror4.valid) - 11)
+mse <- total_error / length(start_pts)
 mse
 
 
 ```
 
+# Predicting the future using our best model
 ```{r}
-val <- sarima.for(c(terror4, terror4.valid), 12, 0, 1, 1, 1, 1, 1, 4)
+val <- sarima.for(c(terror4, terror4.valid), 12, 0, 1, 1, 0, 0, 0, 0)
 pred <-val$pred
 err  <-val$se
 total <- c(terror4, terror4.valid, terror4.testing)
@@ -179,7 +192,7 @@ lines(as.xts(ts(pred, frequency = 12, start=2016)),col="blue")
 lines(as.xts(ts(pred + err, frequency = 12, start=2016)),col="blue", lty="dashed")
 lines(as.xts(ts(pred - err, frequency = 12, start=2016)),col="blue", lty="dashed")
 lines(as.xts(ts(pred + 2*err, frequency = 12, start=2016)),col="blue", lty="dotted")
-pdf("prediction_on_testing.pdf")
+pdf("image/prediction_on_testing.pdf")
 lines(as.xts(ts(pred - 2*err, frequency = 12, start=2016)),col="blue", lty="dotted")
 dev.off()
 

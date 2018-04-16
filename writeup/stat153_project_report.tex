@@ -96,15 +96,15 @@ From the
 \begin{tabular}{r || r | r| r| r}
 $(p, d, q) \times(P, D, Q)_s$   & AIC   &AICc   &BIC    &MSE\\
 \hline
-$(0, 1, 1)$               & 5.248 &5.252  &4.265  &14907\\
-$(0, 1, 1) \times (1, 0, 1)_4$   & 5.237 &5.241  &4.270  &14578.57\\ % Small p-values and passes ljung box p-values on seasonal ar1 and ma1; passes ljung box
-$(0, 1, 1) \times (1, 1, 1)_4$   & 5.249 &5.254  &4.274  &14183.01\\
-$(0, 1, 1) \times (1, 1, 2)_4$   & 5.242 &5.246  &4.275  &14934.03\\
+$(0, 1, 1)$               & 5.248 &5.252  &4.265  &13212.18\\
+$(0, 1, 1) \times (1, 0, 1)_4$   & 5.237 &5.241  &4.270  &13451.05\\ % Small p-values and passes ljung box p-values on seasonal ar1 and ma1; passes ljung box
+$(0, 1, 1) \times (1, 1, 1)_4$   & 5.249 &5.254  &4.274  &13325.71\\
+$(0, 1, 1) \times (1, 1, 2)_4$   & 5.242 &5.246  &4.275  &13728.1\\
 \hline
-$(1, 1, 2)$               & 5.256 & 5.260 &4.288  &15044.47\\
-$(1, 1, 2) \times (1, 0, 1)_4$   & 5.243 &5.247  &4.292  &15130.19\\ %Large p-values on ma2, small 
-$(1, 1, 2) \times (1, 1, 1)_4$   & 5.252 & 5.257 &4.294  &15197.85\\
-$(1, 1, 2)\times (1, 1, 2)_4$   & 5.250 & 5.254 & 4.299 &15074.55
+$(1, 1, 2)$               & 5.256 & 5.260 &4.288  &13237.34\\
+$(1, 1, 2) \times (1, 0, 1)_4$   & 5.243 &5.247  &4.292  &13785.23\\ %Large p-values on ma2, small 
+$(1, 1, 2) \times (1, 1, 1)_4$   & 5.252 & 5.257 &4.294  &14144.5\\
+$(1, 1, 2)\times (1, 1, 2)_4$   & 5.250 & 5.254 & 4.299 &13826.03
 \end{tabular}
 \caption{The metrics associated with different SARIMA models denoted by the left hand column.}
 \end{table}

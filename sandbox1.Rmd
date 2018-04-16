@@ -1,0 +1,186 @@
+---
+title: "R Notebook"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r}
+library(TSA)
+library(tseries)
+library(astsa)
+library(imputeTS)
+library(tsoutliers)
+library(xts)
+```
+
+# Interpolating Data
+Here we interpolate our missing data with a linear model.
+```{r}
+terror2 <- read.csv("input/og_num_casualities_greater_than_10.csv")
+terror3 <- na.interpolation(terror2$num.attacks.with.kill.thresh, option="linear")
+plot(as.xts(ts(terror3, frequency = 12, start=1970)), main = "Number of Terrorist Attacks (w/ Linear Imputed Data)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years", ylim=c(0, 225), col="red")
+pdf("image/og_ts.pdf")
+lines(as.xts(ts(terror2$num.attacks.with.kill.thresh, frequency = 12, start=1970)), col="black", lwd=1.2)
+dev.off()
+```
+
+# Removing outliers
+```{r}
+outlier_terror3 <- tso(ts(terror3), types = c("TC", "AO", "IO"))
+plot(outlier_terror3)
+
+#plot outlier effects
+pdf("image/outlier_effects.pdf")
+plot(as.xts(ts(outlier_terror3$effects, frequency = 12, start=1970)), main = "Outlier Effects", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years", col="red")
+dev.off()
+
+#Plot outlier time series
+xts.terror3 <- as.xts(ts(terror3, frequency = 12, start=1970))
+plot(as.xts(ts(terror3, frequency = 12, start=1970)), main = "Number of Terrorist Attacks (Outliers Removed)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years", col="lightgray", ylim=c(0, 225))
+lines(as.xts(ts(outlier_terror3$yadj, frequency = 12, start=1970)), col="blue")
+points(xts.terror3[427], col="red",pch=19, cex=1)
+points(xts.terror3[516], col="red",pch=19, cex=1)
+points(xts.terror3[521], col="red",pch=19, cex=1)
+
+points(xts.terror3[523], col="red",pch=19, cex=1)
+points(xts.terror3[547], col="red",pch=19, cex=1)
+pdf("image/outlier_comparison.pdf")
+points(xts.terror3[556], col="red",pch=19, cex=1)
+dev.off()
+```
+
+
+# Making, Training, and Validation set
+```{r}
+terror4 <- outlier_terror3$yadj
+
+#terror3 <- na.kalman(terror2$num.attacks, model="auto.arima")
+cuttoff.index <- length(terror4) - 24 #floor(0.1 * length(terror3))
+cuttoff.index2 <- length(terror4) - 12
+terror4.valid <- terror4[(cuttoff.index+1) :cuttoff.index2]
+terror4.testing <- terror4[(cuttoff.index2 + 1): length(terror4)]
+terror4 <- terror4[1: cuttoff.index]
+
+#plot(as.xts(ts(terror4, frequency = 12, start=1970)), main = "Number of Terrorist Attacks (Training Set)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years")
+
+#plot(as.xts(ts(terror4.valid, frequency = 12, start=1970)), main = "Number of Terrorist Attacks (Validation Set)", major.format = "%Y-%m", grid.col="white", lwd=1)
+```
+
+#Chasing Stationarity
+```{r}
+#log_terror4 <- log(outlier_terror3$yadj)
+adf.test(terror4, k=1)
+adf.test(diff(terror4), k=1)
+adf.test(diff(diff(terror4)), k=1)
+
+pdf("image/first_diff.pdf")
+plot(as.xts(ts(diff(terror4), frequency = 12, start=1970)), main = "Number of Terrorist Attacks (First Diff)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years")
+dev.off()
+
+pdf("image/second_diff.pdf")
+plot(as.xts(ts(diff(diff(terror4)), frequency = 12, start=1970)), main = "Number of Terrorist Attacks (Second Diff)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years")
+dev.off()
+
+#ts.plot(diff(terror4))
+#ts.plot(diff(diff(terror4)))
+```
+
+```{r}
+pdf("image/acf_og.pdf")
+acf(terror4, main="ACF of Training Data")
+dev.off()
+pdf("image/pacf_og.pdf")
+pacf(terror4, main="PACF of Training Data")
+dev.off()
+
+pdf("image/acf_first_diff.pdf")
+acf(diff(terror4), main="ACF of First Diff Training Data")
+dev.off()
+pdf("image/pacf_first_diff.pdf")
+pacf(diff(terror4), main="PACF of First Diff Training Data")
+dev.off()
+
+pdf("image/acf_second_diff.pdf")
+acf(diff(terror4), main="ACF of Second Diff Training Data")
+dev.off()
+pdf("image/pacf_second_diff.pdf")
+pacf(diff(terror4), main="PACF of Second Diff Training Data")
+dev.off()
+```
+
+
+#Periodogram; Figuring out Seasonality
+```{r}
+m = floor(sqrt(length(diff(terror4))))
+#pdf("image/raw_periodogram.pdf")
+spec.pgram(diff(terror4), log="no", main="Raw Periodogram", cex.main=1.5)
+#dev.off()
+
+#pdf("image/smooth_tapered_periodogram.pdf")
+spec.pgram(diff(terror4), kernel('daniell', m), log="no", taper=0.1, main="Smoothed and Tapered Periodogram")
+#dev.off()
+#mvspec(diff(log_terror4),  kernel('daniell', m), log="no")
+```
+
+
+# Finding which model to use
+```{r}
+eacf(diff(terror4))
+eacf(diff(diff(terror4)))
+```
+
+```{r}
+#sarima(terror4, 0, 1, 1)
+sarima(terror4, 0, 1, 1, 1, 0, 1, 4)
+sarima(terror4, 0, 1, 1, 1, 1, 1, 4)
+sarima(terror4, 0, 1, 1, 1, 1, 2, 4)
+
+sarima(terror4, 1, 1, 2)
+sarima(terror4, 1, 1, 2, 1, 0, 1, 4)
+sarima(terror4, 1, 1, 2, 1, 1, 1, 4)
+sarima(terror4, 1, 1, 2, 1, 1, 2, 4)
+
+sarima(terror4, 1, 1, 1)
+```
+
+
+```{r}
+pdf("image/best_model.pdf")
+sarima(terror4, 0, 1, 1, 1, 1, 1, 4)
+dev.off()
+```
+
+
+### MSE calculations
+```{r}
+predicted <- sarima.for(terror4, 12, 0, 1, 1, 0, 0, 0, 0)$pred
+mse <- sum((predicted - terror4.valid)^2)
+
+mse
+
+
+```
+
+# Predicting the future using our best model
+```{r}
+val <- sarima.for(c(terror4, terror4.valid), 12, 0, 1, 1, 1, 1, 1, 4)
+pred <-val$pred
+err  <-val$se
+total <- c(terror4, terror4.valid, terror4.testing)
+par(cex.main = 2)
+plot(as.xts(ts(total, frequency = 12, start=1970))[492:length(total)], main = "Number of Terrorist Attacks (Prediction)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years", col="lightgray", pch="1", ylim=c(0, 225))
+points(as.xts(ts(total, frequency = 12, start=1970)),col="lightgray",pch="o")
+lines(as.xts(ts(c(terror4, terror4.valid), frequency = 12, start=1970)),col="black")
+points(as.xts(ts(c(terror4, terror4.valid), frequency = 12, start=1970)),col="black",pch="o")
+lines(as.xts(ts(pred, frequency = 12, start=2016)),col="blue")
+lines(as.xts(ts(pred + err, frequency = 12, start=2016)),col="blue", lty="dashed")
+lines(as.xts(ts(pred - err, frequency = 12, start=2016)),col="blue", lty="dashed")
+lines(as.xts(ts(pred + 2*err, frequency = 12, start=2016)),col="blue", lty="dotted")
+pdf("image/prediction_on_testing.pdf")
+lines(as.xts(ts(pred - 2*err, frequency = 12, start=2016)),col="blue", lty="dotted")
+dev.off()
+
+mse <- sum((pred - terror4.testing)^2)
+mse
+```
