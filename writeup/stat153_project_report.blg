@@ -1,15 +1,15 @@
 [0] Config.pm:354> INFO - This is Biber 2.7
 [0] Config.pm:357> INFO - Logfile is 'stat153_project_report.blg'
-[55] biber-darwin:303> INFO - === Tue Apr 17, 2018, 01:14:01
-[84] Biber.pm:359> INFO - Reading 'stat153_project_report.bcf'
-[202] Biber.pm:835> INFO - Found 3 citekeys in bib section 0
-[217] Biber.pm:3670> INFO - Processing section 0
-[237] Biber.pm:3840> INFO - Looking for bibtex format file 'stat153_project_report.bib' for section 0
-[239] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
-[246] bibtex.pm:1292> INFO - Found BibTeX data source 'stat153_project_report.bib'
-[300] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[300] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[301] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'de_DE'
-[301] Biber.pm:3505> INFO - No sort tailoring available for locale 'de_DE'
-[306] bbl.pm:608> INFO - Writing 'stat153_project_report.bbl' with encoding 'ascii'
-[307] bbl.pm:712> INFO - Output to stat153_project_report.bbl
+[49] biber-darwin:303> INFO - === Tue Apr 17, 2018, 10:02:49
+[76] Biber.pm:359> INFO - Reading 'stat153_project_report.bcf'
+[183] Biber.pm:835> INFO - Found 3 citekeys in bib section 0
+[198] Biber.pm:3670> INFO - Processing section 0
+[226] Biber.pm:3840> INFO - Looking for bibtex format file 'stat153_project_report.bib' for section 0
+[229] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[237] bibtex.pm:1292> INFO - Found BibTeX data source 'stat153_project_report.bib'
+[294] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[294] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[294] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'de_DE'
+[294] Biber.pm:3505> INFO - No sort tailoring available for locale 'de_DE'
+[300] bbl.pm:608> INFO - Writing 'stat153_project_report.bbl' with encoding 'ascii'
+[301] bbl.pm:712> INFO - Output to stat153_project_report.bbl

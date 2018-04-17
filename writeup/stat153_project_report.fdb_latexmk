@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber stat153_project_report"] 1523952840 "stat153_project_report.bcf" "stat153_project_report.bbl" "stat153_project_report" 1523952901
-  "stat153_project_report.bcf" 1523952901 95867 ea07ae214bc15a0fbc739066a3cbb283 ""
+["biber stat153_project_report"] 1523984568 "stat153_project_report.bcf" "stat153_project_report.bbl" "stat153_project_report" 1523986799
+  "stat153_project_report.bcf" 1523986799 95867 ea07ae214bc15a0fbc739066a3cbb283 ""
   "stat153_project_report.bib" 1523952566 670 08a398ee2540bc25524b0d87e16bcd11 ""
   (generated)
-  "stat153_project_report.blg"
   "stat153_project_report.bbl"
-["pdflatex"] 1523952899 "stat153_project_report.tex" "stat153_project_report.pdf" "stat153_project_report" 1523952901
+  "stat153_project_report.blg"
+["pdflatex"] 1523986798 "stat153_project_report.tex" "stat153_project_report.pdf" "stat153_project_report" 1523986799
   "../image/acf_first_diff.pdf" 1523923859 4892 e65c02b7c5b38c3eb65b1a3584ee0c46 ""
   "../image/acf_og.pdf" 1523923859 4861 6af0fbb073b963380b10e8cebf6c3c68 ""
   "../image/acf_second_diff.pdf" 1523923859 4892 4312381c33ea52c47111ac6c142b71b1 ""
@@ -18,8 +18,10 @@
   "../image/pacf_og.pdf" 1523923859 4874 5cac4bf6f38a54ac8507c9730a8a3761 ""
   "../image/pacf_second_diff.pdf" 1523923859 4910 78267d69339173ab7dd26970bfd56167 ""
   "../image/prediction_on_testing.pdf" 1523923889 7398 1104d34db891fe30183cf83b2d21dd83 ""
-  "../image/raw_periodogram.pdf" 1523950149 6318 3daf2364e5b204a37514d77938783358 ""
-  "../image/smooth_tapered_periodogram.pdf" 1523950149 6387 63f27d1e55cab2eb05b5c6909151517b ""
+  "../image/raw_periodogram.pdf" 1523984562 6369 ee6a70ce1859142e3efb1493387ee10e ""
+  "../image/raw_periodogram_2.pdf" 1523984562 6318 df2e78d7fe1148c0ce82bd80e25bf187 ""
+  "../image/smooth_tapered_periodogram.pdf" 1523984562 6387 c17f94d89d4bb537d8a19011eaaf9397 ""
+  "../image/smooth_tapered_periodogram_2.pdf" 1523984562 6327 b21a1c58de8c6c0dcd692f067ee93c0d ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -166,15 +168,15 @@
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1495593487 4129592 0e6cfee100d68e6d96b92c0258f2ff73 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
   "gary.sty" 1523952814 3853 ca34766987168d29596b9357f2c8df14 ""
-  "stat153_project_report.aux" 1523952901 7135 8addd9a7fd1802be773c2c3917f9a257 ""
-  "stat153_project_report.bbl" 1523952841 2395 dc198c81faf83adcfb60aba37957ce25 "biber stat153_project_report"
-  "stat153_project_report.out" 1523952901 390 e28cce06e6875e0bd78a8461c6fb091e ""
-  "stat153_project_report.run.xml" 1523952901 2477 83dac2d84c2e9435b6bed74e6b16bf40 ""
-  "stat153_project_report.tex" 1523952897 20644 b1d7a1a711fd862741348b93dcf81024 ""
+  "stat153_project_report.aux" 1523986799 8113 40855ed4108568f333e35be7dcd1d75d ""
+  "stat153_project_report.bbl" 1523984569 2395 dc198c81faf83adcfb60aba37957ce25 "biber stat153_project_report"
+  "stat153_project_report.out" 1523986799 459 1f8102b6000969e392cf450d456f3de6 ""
+  "stat153_project_report.run.xml" 1523986799 2477 83dac2d84c2e9435b6bed74e6b16bf40 ""
+  "stat153_project_report.tex" 1523986797 22367 2ba800a9fea48c3cf519c0c0c1c07b0a ""
   (generated)
   "stat153_project_report.bcf"
   "stat153_project_report.pdf"
-  "stat153_project_report.out"
   "stat153_project_report.run.xml"
-  "stat153_project_report.aux"
+  "stat153_project_report.out"
   "stat153_project_report.log"
+  "stat153_project_report.aux"

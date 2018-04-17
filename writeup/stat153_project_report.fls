@@ -296,6 +296,12 @@ INPUT ../image/raw_periodogram.pdf
 INPUT ../image/smooth_tapered_periodogram.pdf
 INPUT ../image/smooth_tapered_periodogram.pdf
 INPUT ../image/smooth_tapered_periodogram.pdf
+INPUT ../image/raw_periodogram_2.pdf
+INPUT ../image/raw_periodogram_2.pdf
+INPUT ../image/raw_periodogram_2.pdf
+INPUT ../image/smooth_tapered_periodogram_2.pdf
+INPUT ../image/smooth_tapered_periodogram_2.pdf
+INPUT ../image/smooth_tapered_periodogram_2.pdf
 INPUT ../image/best_model.pdf
 INPUT ../image/best_model.pdf
 INPUT ../image/best_model.pdf
