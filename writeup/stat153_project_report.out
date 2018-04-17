@@ -1,5 +1,8 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Methodology}{}% 2
-\BOOKMARK [1][-]{section.3}{Results}{}% 3
-\BOOKMARK [1][-]{section.4}{Discussion}{}% 4
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 5
+\BOOKMARK [1][-]{section.2}{Data Analysis}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Cleaning}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Chasing Stationarity}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Model Selection}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Forecasting}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Data Analysis}{}% 7
+\BOOKMARK [1][-]{section.4}{Conclusion}{}% 8

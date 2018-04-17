@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  16 APR 2018 16:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  16 APR 2018 20:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1169,110 +1169,131 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 11.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<../image/og_ts.pdf, id=24, 505.89pt x 505.89pt>
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+ [1
+
+
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+ [2]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+<../image/og_ts.pdf, id=50, 505.89pt x 505.89pt>
 File: ../image/og_ts.pdf Graphic file (type pdf)
  <use ../image/og_ts.pdf>
-Package pdftex.def Info: ../image/og_ts.pdf used on input line 16.
+Package pdftex.def Info: ../image/og_ts.pdf used on input line 114.
 (pdftex.def)             Requested size: 352.31625pt x 352.32199pt.
 
-<../image/outlier_comparison.pdf, id=25, 505.89pt x 505.89pt>
+<../image/outlier_comparison.pdf, id=51, 505.89pt x 505.89pt>
 File: ../image/outlier_comparison.pdf Graphic file (type pdf)
 
 <use ../image/outlier_comparison.pdf>
-Package pdftex.def Info: ../image/outlier_comparison.pdf used on input line 23.
-
+Package pdftex.def Info: ../image/outlier_comparison.pdf used on input line 121
+.
 (pdftex.def)             Requested size: 352.31625pt x 352.32199pt.
 
-<../image/outlier_effects.pdf, id=26, 505.89pt x 505.89pt>
+<../image/outlier_effects.pdf, id=52, 505.89pt x 505.89pt>
 File: ../image/outlier_effects.pdf Graphic file (type pdf)
 
 <use ../image/outlier_effects.pdf>
-Package pdftex.def Info: ../image/outlier_effects.pdf used on input line 30.
+Package pdftex.def Info: ../image/outlier_effects.pdf used on input line 128.
 (pdftex.def)             Requested size: 352.31625pt x 352.32199pt.
 
-<../image/acf_og.pdf, id=27, 505.89pt x 505.89pt>
+<../image/acf_og.pdf, id=53, 505.89pt x 505.89pt>
 File: ../image/acf_og.pdf Graphic file (type pdf)
  <use ../image/acf_og.pdf>
-Package pdftex.def Info: ../image/acf_og.pdf used on input line 39.
+Package pdftex.def Info: ../image/acf_og.pdf used on input line 137.
 (pdftex.def)             Requested size: 211.38832pt x 211.39165pt.
 
-<../image/pacf_og.pdf, id=28, 505.89pt x 505.89pt>
+<../image/pacf_og.pdf, id=54, 505.89pt x 505.89pt>
 File: ../image/pacf_og.pdf Graphic file (type pdf)
  <use ../image/pacf_og.pdf>
-Package pdftex.def Info: ../image/pacf_og.pdf used on input line 40.
+Package pdftex.def Info: ../image/pacf_og.pdf used on input line 138.
 (pdftex.def)             Requested size: 211.38832pt x 211.39165pt.
 
-<../image/acf_first_diff.pdf, id=29, 505.89pt x 505.89pt>
+<../image/acf_first_diff.pdf, id=55, 505.89pt x 505.89pt>
 File: ../image/acf_first_diff.pdf Graphic file (type pdf)
 
 <use ../image/acf_first_diff.pdf>
-Package pdftex.def Info: ../image/acf_first_diff.pdf used on input line 49.
+Package pdftex.def Info: ../image/acf_first_diff.pdf used on input line 147.
 (pdftex.def)             Requested size: 211.38832pt x 211.39165pt.
 
-<../image/pacf_second_diff.pdf, id=30, 505.89pt x 505.89pt>
+<../image/pacf_second_diff.pdf, id=56, 505.89pt x 505.89pt>
 File: ../image/pacf_second_diff.pdf Graphic file (type pdf)
 
 <use ../image/pacf_second_diff.pdf>
-Package pdftex.def Info: ../image/pacf_second_diff.pdf used on input line 50.
+Package pdftex.def Info: ../image/pacf_second_diff.pdf used on input line 148.
 (pdftex.def)             Requested size: 211.38832pt x 211.39165pt.
 
-<../image/raw_periodogram.pdf, id=31, 505.89pt x 505.89pt>
+<../image/raw_periodogram.pdf, id=57, 505.89pt x 505.89pt>
 File: ../image/raw_periodogram.pdf Graphic file (type pdf)
 
 <use ../image/raw_periodogram.pdf>
-Package pdftex.def Info: ../image/raw_periodogram.pdf used on input line 57.
+Package pdftex.def Info: ../image/raw_periodogram.pdf used on input line 155.
 (pdftex.def)             Requested size: 211.38832pt x 211.39165pt.
 
-<../image/smooth_tapered_periodogram.pdf, id=32, 505.89pt x 505.89pt>
+<../image/smooth_tapered_periodogram.pdf, id=58, 505.89pt x 505.89pt>
 File: ../image/smooth_tapered_periodogram.pdf Graphic file (type pdf)
 
 <use ../image/smooth_tapered_periodogram.pdf>
 Package pdftex.def Info: ../image/smooth_tapered_periodogram.pdf used on input 
-line 58.
+line 156.
 (pdftex.def)             Requested size: 211.38832pt x 211.39165pt.
 
-<../image/acf_second_diff.pdf, id=33, 505.89pt x 505.89pt>
+<../image/acf_second_diff.pdf, id=59, 505.89pt x 505.89pt>
 File: ../image/acf_second_diff.pdf Graphic file (type pdf)
 
 <use ../image/acf_second_diff.pdf>
-Package pdftex.def Info: ../image/acf_second_diff.pdf used on input line 67.
+Package pdftex.def Info: ../image/acf_second_diff.pdf used on input line 165.
 (pdftex.def)             Requested size: 211.38832pt x 211.39165pt.
 File: ../image/pacf_second_diff.pdf Graphic file (type pdf)
  <use ../image/pacf_second_diff.pdf>
-Package pdftex.def Info: ../image/pacf_second_diff.pdf used on input line 68.
+Package pdftex.def Info: ../image/pacf_second_diff.pdf used on input line 166.
 (pdftex.def)             Requested size: 211.38832pt x 211.39165pt.
 
-<../image/prediction_on_testing.pdf, id=34, 505.89pt x 505.89pt>
+<../image/prediction_on_testing.pdf, id=60, 505.89pt x 505.89pt>
 File: ../image/prediction_on_testing.pdf Graphic file (type pdf)
 
 <use ../image/prediction_on_testing.pdf>
 Package pdftex.def Info: ../image/prediction_on_testing.pdf used on input line 
-75.
+173.
 (pdftex.def)             Requested size: 352.31625pt x 352.32199pt.
 
-<../image/best_model.pdf, id=35, 505.89pt x 505.89pt>
+<../image/best_model.pdf, id=61, 505.89pt x 505.89pt>
 File: ../image/best_model.pdf Graphic file (type pdf)
 
 <use ../image/best_model.pdf>
-Package pdftex.def Info: ../image/best_model.pdf used on input line 82.
+Package pdftex.def Info: ../image/best_model.pdf used on input line 180.
 (pdftex.def)             Requested size: 352.31625pt x 352.32199pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 149.
- [1
-
-
-{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <../
-image/og_ts.pdf>] [3 <../image/outlier_comparison.pdf>] [4 <../image/outlier_ef
-fects.pdf> <../image/acf_og.pdf> <../image/pacf_og.pdf>] [5 <../image/acf_first
-_diff.pdf> <../image/pacf_second_diff.pdf> <../image/raw_periodogram.pdf> <../i
-mage/smooth_tapered_periodogram.pdf>] [6 <../image/acf_second_diff.pdf> <../ima
-ge/prediction_on_testing.pdf>] [7 <../image/best_model.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 149.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 245.
+ [3] [4 <../image/og_ts.pdf>] [5 <../image/outlier_comparison.pdf>] [6 <../imag
+e/outlier_effects.pdf> <../image/acf_og.pdf> <../image/pacf_og.pdf>] [7 <../ima
+ge/acf_first_diff.pdf> <../image/pacf_second_diff.pdf> <../image/raw_periodogra
+m.pdf> <../image/smooth_tapered_periodogram.pdf>]
+[8 <../image/acf_second_diff.pdf> <../image/prediction_on_testing.pdf>]
+[9 <../image/best_model.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 245.
  (./stat153_project_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 149.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 149.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 245.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 245.
 Package rerunfilecheck Info: File `stat153_project_report.out' has not changed.
 
-(rerunfilecheck)             Checksum: A4A599DE9B27EC5ABF701F43D381A8B6;225.
+(rerunfilecheck)             Checksum: 6E3B69B7B93988B74C84ACDAD539D2B5;438.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1282,10 +1303,10 @@ Package logreq Info: Writing requests to 'stat153_project_report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24152 strings out of 492995
- 421420 string characters out of 6132704
- 1004622 words of memory out of 5000000
- 27403 multiletter control sequences out of 15000+600000
+ 24164 strings out of 492995
+ 421595 string characters out of 6132704
+ 1005650 words of memory out of 5000000
+ 27410 multiletter control sequences out of 15000+600000
  10258 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  46i,11n,68p,10453b,745s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1299,10 +1320,10 @@ l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/
 texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on stat153_project_report.pdf (7 pages, 192952 bytes).
+Output written on stat153_project_report.pdf (9 pages, 205182 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 226 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

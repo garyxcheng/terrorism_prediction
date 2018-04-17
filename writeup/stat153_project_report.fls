@@ -238,6 +238,12 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT /usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT ../image/og_ts.pdf
 INPUT ../image/og_ts.pdf
 INPUT ../image/og_ts.pdf
@@ -266,9 +272,6 @@ INPUT ../image/raw_periodogram.pdf
 INPUT ../image/smooth_tapered_periodogram.pdf
 INPUT ../image/smooth_tapered_periodogram.pdf
 INPUT ../image/smooth_tapered_periodogram.pdf
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT ../image/acf_second_diff.pdf
 INPUT ../image/acf_second_diff.pdf
 INPUT ../image/acf_second_diff.pdf
@@ -280,9 +283,6 @@ INPUT ../image/prediction_on_testing.pdf
 INPUT ../image/best_model.pdf
 INPUT ../image/best_model.pdf
 INPUT ../image/best_model.pdf
-INPUT /usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
 INPUT stat153_project_report.aux
 INPUT ./stat153_project_report.out
 INPUT ./stat153_project_report.out
