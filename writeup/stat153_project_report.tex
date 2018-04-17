@@ -24,8 +24,6 @@ We wanted to use the GTD to study the number of terrorist attacks that occur ove
 
 Our uncleaned dataset contains every terrorist attack from 1970 to 2016. To form a time series out of this dataset, we counted the number of attacks that occurred each month and created a vector of these values. Figure \ref{ogogog} in the appendix displays a plot of the number of attacks per month since 1970.
 
-
-
 It should be noted that the data from 1998 to 2007 was collected retrospectively, as opposed to the other data, which was collected in real time. According to START, retrospective collection may underestimate the true number of terrorist attacks, because some media sources that documented the attacks are no longer available. Indeed, there is a subtle drop in the number of attacks in Figure \ref{ogogog} for those years.
 
 Furthermore, the GTD broadly defines a terrorist attack as ``the threatened or actual use of illegal force and violence by a non-state actor to attain a political, economic, religious, or social goal through fear, coercion, or intimidation''. This is quite a loose definition, which is understandable, since the GTD aims to be as inclusive as possible, and allow researchers to filter the data according to their own criteria.
@@ -60,8 +58,6 @@ After filtering for 10 casualties, imputing the data, and removing outliers, the
 \caption{The imputed time series (in blue) with outliers removed. The original time series shown in gray. The 6 outliers are shown in red. }
 \label{outlier}
 \end{figure}
-
-
 
 For purposes of model selection and cross-validation, we split our dataset into three disjoint components: training, validation, and testing. The training dataset was used to find candidate models. The validation dataset was then used to select the best candidate model. Then finally, the testing dataset was used as a final assessment of how well our selected model performs. It should be noted that these components are made disjoint to ensure that we do not bias the model to overfit on testing data. Furthermore, the components are sequential blocks, with the training set consisting of data from 1970-2012 inclusive, the validation from 2013-2015 inclusive, and the testing from the year 2016.
 
