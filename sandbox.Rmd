@@ -14,6 +14,15 @@ library(tsoutliers)
 library(xts)
 ```
 
+# Original dataset
+```{r}
+terror10 <-read.csv("input/editted_input1.csv")$num.attacks.with.kill.thresh
+pdf("image/og_og_og.pdf")
+plot(as.xts(ts(terror10, frequency = 12, start=1970)), main = "Number of Terrorist Attacks (unfiltered)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years", col="black")
+dev.off()
+```
+
+
 # Interpolating Data
 Here we interpolate our missing data with a linear model.
 ```{r}
@@ -70,9 +79,9 @@ terror4 <- terror4[1: cuttoff.index]
 #Chasing Stationarity
 ```{r}
 #log_terror4 <- log(outlier_terror3$yadj)
-adf.test(terror4, k=1)
-adf.test(diff(terror4), k=1)
-adf.test(diff(diff(terror4)), k=1)
+adf.test(terror4)
+adf.test(diff(terror4))
+adf.test(diff(diff(terror4)))
 
 pdf("image/first_diff.pdf")
 plot(as.xts(ts(diff(terror4), frequency = 12, start=1970)), main = "Number of Terrorist Attacks (First Diff)", major.format = "%Y-%m", grid.col="white", lwd=1, major.ticks = "years")
@@ -114,13 +123,21 @@ dev.off()
 ```{r}
 m = floor(sqrt(length(diff(terror4))))
 pdf("image/raw_periodogram.pdf")
-mvspec(diff(terror4), log="no", main="Raw Periodogram", cex.main=1.5)
+mvspec(diff(terror4), log="no", main="Raw Periodogram (First Difference)", cex.main=1.5)
 dev.off()
 
 pdf("image/smooth_tapered_periodogram.pdf")
-mvspec(diff(terror4), kernel('modified.daniell', m), log="no", taper=0.1, main="Smoothed and Tapered Periodogram")
+mvspec(diff(terror4), kernel('modified.daniell', m), log="no", taper=0.1, main="Smoothed and Tapered Periodogram (First Difference)")
 dev.off()
-#mvspec(diff(log_terror4),  kernel('daniell', m), log="no")
+
+pdf("image/raw_periodogram_2.pdf")
+m = floor(sqrt(length(diff(diff(terror4)))))
+mvspec(diff(diff(terror4)), log="no", main="Raw Periodogram (First Difference)", cex.main=1.5)
+dev.off()
+
+pdf("image/smooth_tapered_periodogram_2.pdf")
+mvspec(diff(diff(terror4)), kernel('modified.daniell', m), log="no", taper=0.1, main="Smoothed and Tapered Periodogram")
+dev.off()
 ```
 
 
@@ -131,22 +148,22 @@ eacf(diff(diff(terror4)))
 ```
 
 ```{r}
-sarima(terror4, 1, 1, 1)
-# sarima(terror4, 0, 1, 1, 1, 0, 1, 4)
-# sarima(terror4, 0, 1, 1, 1, 1, 1, 4)
-# sarima(terror4, 0, 1, 1, 1, 1, 2, 4)
-# 
-# sarima(terror4, 0, 1, 1, 1, 0, 1, 3)
-# sarima(terror4, 0, 1, 1, 1, 1, 1, 3)
-# sarima(terror4, 0, 1, 1, 1, 1, 2, 3)
-# 
-# sarima(terror4, 1, 1, 2)
-# sarima(terror4, 1, 1, 2, 1, 0, 1, 4)
-# sarima(terror4, 1, 1, 2, 1, 1, 1, 4)
-# sarima(terror4, 1, 1, 2, 1, 1, 2, 4)
-# sarima(terror4, 1, 1, 2, 1, 0, 1, 3)
-# sarima(terror4, 1, 1, 2, 1, 1, 1, 3)
-# sarima(terror4, 1, 1, 2, 1, 1, 2, 3)
+sarima(terror4, 0, 1, 1)
+sarima(terror4, 0, 1, 1, 1, 0, 1, 4)
+sarima(terror4, 0, 1, 1, 1, 1, 1, 4)
+sarima(terror4, 0, 1, 1, 1, 1, 2, 4)
+
+sarima(terror4, 1, 1, 2)
+sarima(terror4, 1, 1, 2, 1, 0, 1, 4)
+sarima(terror4, 1, 1, 2, 1, 1, 1, 4)
+sarima(terror4, 1, 1, 2, 1, 1, 2, 4)
+ 
+sarima(terror4, 3, 2, 1)
+sarima(terror4, 3, 2, 1, 1, 0, 1, 4)
+
+sarima(terror4, 0, 1, 1, 1, 0, 1, 3)
+sarima(terror4, 3, 2, 1, 1, 0, 1, 3)
+
 ```
 
 
@@ -158,6 +175,7 @@ dev.off()
 
 
 ### MSE calculations
+change the model to see mse of different models.
 ```{r}
 #eacf(diff(diff(log_terror4)))
 terror5 <- terror4
@@ -166,7 +184,7 @@ start_pts <- c(1, 13, 25)
 for (i in start_pts)
 {
   actual <- terror4.valid[i : (i + 11)]
-  predicted <- sarima.for(terror5, 12, 0, 1, 1, 1, 1, 1, 3)$pred
+  predicted <- sarima.for(terror5, 12, 3, 2, 1, 1, 0, 1, 3)$pred
   total_error <- total_error + sum((actual - predicted)^2)
   terror5 <- c(terror5, terror4.valid[i : (i + 11)]) 
 }
