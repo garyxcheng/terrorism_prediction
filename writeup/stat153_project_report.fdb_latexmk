@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber stat153_project_report"] 1523984568 "stat153_project_report.bcf" "stat153_project_report.bbl" "stat153_project_report" 1523989720
-  "stat153_project_report.bcf" 1523989720 95867 ea07ae214bc15a0fbc739066a3cbb283 ""
+["biber stat153_project_report"] 1523984568 "stat153_project_report.bcf" "stat153_project_report.bbl" "stat153_project_report" 1523991194
+  "stat153_project_report.bcf" 1523991162 95867 ea07ae214bc15a0fbc739066a3cbb283 ""
   "stat153_project_report.bib" 1523952566 670 08a398ee2540bc25524b0d87e16bcd11 ""
   (generated)
   "stat153_project_report.blg"
   "stat153_project_report.bbl"
-["pdflatex"] 1523989718 "stat153_project_report.tex" "stat153_project_report.pdf" "stat153_project_report" 1523989720
+["pdflatex"] 1523991161 "stat153_project_report.tex" "stat153_project_report.pdf" "stat153_project_report" 1523991194
   "../image/acf_first_diff.pdf" 1523989120 4892 063ecbda3942e09b5c6b9596fa5cf1c9 ""
   "../image/acf_og.pdf" 1523989120 4861 1efd08a3442dfd5eb2ddda923cb78873 ""
   "../image/acf_second_diff.pdf" 1523989120 4892 c7b12b6f396b6797f9e269b3b0d8b440 ""
@@ -176,15 +176,15 @@
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1495593487 4129592 0e6cfee100d68e6d96b92c0258f2ff73 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
   "gary.sty" 1523952814 3853 ca34766987168d29596b9357f2c8df14 ""
-  "stat153_project_report.aux" 1523989720 8250 86cf62323ba821ddf6e11bb2c369f88c ""
+  "stat153_project_report.aux" 1523991162 8250 86cf62323ba821ddf6e11bb2c369f88c ""
   "stat153_project_report.bbl" 1523984569 2395 dc198c81faf83adcfb60aba37957ce25 "biber stat153_project_report"
-  "stat153_project_report.out" 1523989720 502 1f44b5820791992c6755fd4957f7db39 ""
-  "stat153_project_report.run.xml" 1523989720 2477 83dac2d84c2e9435b6bed74e6b16bf40 ""
-  "stat153_project_report.tex" 1523989717 22770 9c091f373e08d413b0e58242426e6d96 ""
+  "stat153_project_report.out" 1523991162 502 1f44b5820791992c6755fd4957f7db39 ""
+  "stat153_project_report.run.xml" 1523991162 2477 83dac2d84c2e9435b6bed74e6b16bf40 ""
+  "stat153_project_report.tex" 1523991194 22933 3fba29a07e4ab370b94e07f0b09e0762 ""
   (generated)
-  "stat153_project_report.bcf"
   "stat153_project_report.pdf"
   "stat153_project_report.log"
-  "stat153_project_report.run.xml"
+  "stat153_project_report.bcf"
   "stat153_project_report.aux"
+  "stat153_project_report.run.xml"
   "stat153_project_report.out"
