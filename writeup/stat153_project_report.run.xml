@@ -79,5 +79,8 @@
     <requires type="dynamic">
       <file>stat153_project_report.bcf</file>
     </requires>
+    <requires type="editable">
+      <file>stat153_project_report.bib</file>
+    </requires>
   </external>
 </requests>
