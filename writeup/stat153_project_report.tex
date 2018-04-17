@@ -35,7 +35,7 @@ It should be noted that the data from 1998 to 2007 was collected retrospectively
 
 Furthermore, the GTD broadly defines a terrorist attack as ``the threatened or actual use of illegal force and violence by a non-state actor to attain a political, economic, religious, or social goal through fear, coercion, or intimidation''. This is quite a loose definition, which is understandable, since the GTD aims to be as inclusive as possible, and allow researchers to filter the data according to their own criteria.
 
-For both of the reasons mentioned above, we filtered the original dataset to select attacks that resulted in 10 or more casualties. Our rationale is that the likelihood of under counting terrorist attacks of that magnitude is far less. Furthermore, attacks of this scale are more in line with what a layman would consider a terrorist attack. The plot of the filtered time series is rendered in figure \ref{og} as the black lines. The definition of terrorist attack we will be working with is:
+For both of the reasons mentioned above, we filtered the original dataset to select attacks that resulted in 10 or more casualties. Our rationale is that the likelihood of under counting terrorist attacks of that magnitude is far less. Furthermore, attacks of this scale are more in line with what a layman would consider a terrorist attack. The plot of the filtered time series is rendered in Figure \ref{og} as the black lines. The definition of terrorist attack we will be working with is:
 
 \begin{mydef}[Terrorist Attack]
 The threatened or actual use of illegal force and violence by a non-state actor to attain a political, economic, religious, or social goal through fear, coercion, or intimidation, where the number of causalities is greater than or equal to 10.
@@ -57,7 +57,7 @@ There is a gap of 12 missing data points corresponding to the year 1993 because 
 Now we filter outliers from the dataset. The library tsoutliers provides a convenient way to identify different kinds of outliers in the dataset. We decided to only filter for additive offset, transient change, and innovational outliers, i.e., outliers manifested as spikes in the underlying dataset. We decided not to filter for level-shift outliers, since we expect to see level-shifts in the timeseries. We also didn’t filter for seasonal additive outliers, since we would not be surprised to see seasonal spikes or dips in the time series.
 
 %\subsection{Final raw Time Series}
-After filtering for 10 casualties, imputing the data, and removing outliers, the time series that we will be working can be found in Figure \ref{outlier}. The outlier effects detected can be viewed in figure \ref{outlier_effect}
+After filtering for 10 casualties, imputing the data, and removing outliers, the time series that we will be working can be found in Figure \ref{outlier}. The outlier effects detected can be viewed in Figure \ref{outlier_effect}
 
 \begin{figure}
 \centering
@@ -73,11 +73,11 @@ After filtering for 10 casualties, imputing the data, and removing outliers, the
 \label{outlier_effect}
 \end{figure}
 
-For purposes of model selection and cross-validation, we split our dataset into three disjoint components: training, validation, and testing. The training dataset was used to find candidate models. The validation dataset was then used to select the best candidate model. Then finally, the testing dataset was used as a final assessment of how well our selected model performs. It should be noted that these components are made disjoint to ensure that we do not bias the model to overfit on testing data. Furthermore, the components are sequential blocks with the training set consisting of data from 1970-2012 inclusive, the validation from 2013-2015 inclusive, and the testing being the last chunk which is the year 2016.
+For purposes of model selection and cross-validation, we split our dataset into three disjoint components: training, validation, and testing. The training dataset was used to find candidate models. The validation dataset was then used to select the best candidate model. Then finally, the testing dataset was used as a final assessment of how well our selected model performs. It should be noted that these components are made disjoint to ensure that we do not bias the model to overfit on testing data. Furthermore, the components are sequential blocks, with the training set consisting of data from 1970-2012 inclusive, the validation from 2013-2015 inclusive, and the testing from the year 2016.
 
 
 \subsection{Chasing Stationarity}
-Visually, the original timeseries does not seem stationary. In particular, the mean of the series appears to increase as time progresses. In addition, the ACF and the PACF of the timeseries, plotted in figure \ref{og_acf_pacf}, decays slowly as the lag increases---another indication that the series is not stationary.
+Visually, the original timeseries does not seem stationary. In particular, the mean of the series appears to increase as time progresses. In addition, the ACF and the PACF of the timeseries, plotted in Figure \ref{og_acf_pacf}, decays slowly as the lag increases---another indication that the series is not stationary.
 
 \begin{figure}
 \centering
@@ -93,7 +93,7 @@ Visually, the original timeseries does not seem stationary. In particular, the m
 One potential method to derive a stationary timeseries is to take the log of the data in the original series. This method would be highly suitable if the original series has an exponentially growing trend. The growth in our original series looks vaguely exponential, which justifies trying to log-transform the series. However, in our case, this method is problematic, since the original series has 0 values (recall that $\log 0$ is undefined). We could replace the 0 values with some small positive $\epsilon$ value, as a potential fix. Unfortunately, $\lim_{x \rightarrow 0+} \log x = - \infty$, so taking $\log \epsilon$ would result in an extremely negative value. To our knowledge, there is no straightforward way to choose an $\epsilon$, and furthermore $\log{\epsilon}$ would also be very sensitive to our choice. For this reason, we opted not to log-transform the data.
 
 %\subsection{Diffed Data}
-In lieu of using a log-transform, we tried differencing and twice-differencing the dataset as a method of obtaining a stationary dataset. The ACF and PACF of these the diffed datasets are plotted in figure \ref{first_acf_pacf} and figure \ref{second_acf_pacf}. The sharp drop-off in the ACFs of these datasets suggests that they are both stationary.
+In lieu of using a log-transform, we tried differencing and twice-differencing the dataset as a method of obtaining a stationary dataset. The ACF and PACF of these the diffed datasets are plotted in Figure \ref{first_acf_pacf} and Figure \ref{second_acf_pacf}. The sharp drop-off in the ACFs of these datasets suggests that they are both stationary.
 
 \begin{figure}
 \centering
@@ -118,7 +118,7 @@ For a more quantitative measure of stationarity, we used the augmented Dickey-Fu
 \subsection{EACF and Seasonality}
 %EACF
 
-To obtain a set of potential ARIMA models that fit our time series, we use the extended sample autocorrelation function (EACF) method. In this method, we generate a table of sample ACFs for ARMA($p, q$) models, where $p$ is in between 0 and 7 and $q$ is in between 0 and 13. We use this table to select promising models for further analysis. The EACF tables (generated by the eacf function in R) for the differenced and twice-differenced time series are shown in table \ref{eacf}. Entries with ``o'' in them correspond to models that are promising. In both tables, large values of $p$ and $q$ are valid model parameters, but we do not want to select too large of a value of $p$ and $q$ because this could mean that we are overfitting the data. 
+To obtain a set of potential ARIMA models that fit our time series, we use the extended sample autocorrelation function (EACF) method. In this method, we generate a Table of sample ACFs for ARMA($p, q$) models, where $p$ is in between 0 and 7 and $q$ is in between 0 and 13. We use this table to select promising models for further analysis. The EACF tables (generated by the eacf function in R) for the differenced and twice-differenced time series are shown in table \ref{eacf}. Entries with ``o'' in them correspond to models that are promising. In both tables, large values of $p$ and $q$ are valid model parameters, but we do not want to select too large of a value of $p$ and $q$ because this could mean that we are overfitting the data. 
 
 \begin{table}
 \centering
@@ -158,7 +158,7 @@ AR/MA & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\%& 8& 9& 10& 11 &12 &13\\
 
 %Periodogram for seasonality
 
-With candidate non-seasonal parameters chosen, we now turn to identifying what seasonal lags, we should consider. The ACF and the PACF plots for the once differenced and twice differenced time series do not have any significant seaonsal spikes, so instead we plot the periodogram for the differenced data in figure \ref{periodogram}. For a more useful visual, we also plot a smoothed and tapered periodogram. After experimenting around with kernel and taper choices, we decided to use a Modified Daniell Kernel with $m = 22 \approx \sqrt{n}$ and a split cosine bell with a taper of $0.1$. Out of all the periodogram variants that we tried, these values gave us a reasonable looking periodogram that we could find a seasonal lag from. We do the same for our twice differenced dataset shown in figure \ref{periodogram2}.
+With candidate non-seasonal parameters chosen, we now turn to identifying what seasonal lags, we should consider. The ACF and the PACF plots for the once differenced and twice differenced time series do not have any significant seaonsal spikes, so instead we plot the periodogram for the differenced data in Figure \ref{periodogram}. For a more useful visual, we also plot a smoothed and tapered periodogram. After experimenting around with kernel and taper choices, we decided to use a Modified Daniell Kernel with $m = 22 \approx \sqrt{n}$ and a split cosine bell with a taper of $0.1$. Out of all the periodogram variants that we tried, these values gave us a reasonable looking periodogram that we could find a seasonal lag from. We do the same for our twice differenced dataset shown in Figure \ref{periodogram2}.
 
 \begin{figure}
 \centering
@@ -227,7 +227,7 @@ Note that BIC tends to work better when the number of observations is large rela
 
 Hardly any of the models we considered in table \ref{results} failed the null hypothesis of Ljung-Box test with a significant $p$-value for any lag. In other words, the Ljung-Box test did not identify a statistically significant correlation among the sample residuals, for any of the models that we considered. This is promising, because we expect the sample residuals of a well-fitting model to be independent. Furthermore, the ACF of the residuals for nearly every model was statistically insignificant, which is indicative that the residuals of different observations are uncorrelated. However, the QQ-plot for nearly every model we considered indicated that our residuals do not look normally distributed. This might signify that a SARIMA model does not have the expressive power to capture some patterns that may be present in the dataset. This also causes any confidence interval (derived from a normal approximation) for forecast to potentially be unreliable. For the sake of brevity, we omit the ljung-box and qq plots for the candidate models and only present them for the final model. The full results for all of our models can be found in our code on github[TODO FOOTNOTE].
 
-Based on our validation methods, we chose as an ARIMA(0, 1, 1) as our final model. Even though its AIC and AICc values are middle of the pack, it had the best BIC and MSE values. The full properties of this model is shown in figure \ref{best_mode}. 
+Based on our validation methods, we chose as an ARIMA(0, 1, 1) as our final model. Even though its AIC and AICc values are middle of the pack, it had the best BIC and MSE values. The full properties of this model is shown in Figure \ref{best_mode}. 
 
 \begin{figure}
 \centering
@@ -239,7 +239,7 @@ Based on our validation methods, we chose as an ARIMA(0, 1, 1) as our final mode
 
 \subsection{Forecasting}
 
-Using our final model, we generated a forecast of 12 months, displayed in figure \ref{prediction}. The prediction fits the behavior of the data fairly well.  What actually occurred, shown in gray fits between the 2 standard error bars (which corresponds to $\approx 95\%$ confidence interval under a normal approximation) of the forecast.
+Using our final model, we generated a forecast of 12 months, displayed in Figure \ref{prediction}. The prediction fits the behavior of the data fairly well.  What actually occurred, shown in gray fits between the 2 standard error bars (which corresponds to $\approx 95\%$ confidence interval under a normal approximation) of the forecast.
 
 
 \begin{figure}
@@ -259,6 +259,9 @@ Notably, our non-seasonal models fit the time series better than our seasonal mo
 Our next objective in analyzing the GTD would be to study its correlation to other datasets. Generally, terrorism attacks are motivated by an external cause, such as a collapse of a government or an ethnic conflict within a state. Therefore, studying the correlation between terrorist attacks over time and another time series would probably yield fruitful results. For example, we would expect that the GDP of a country and the number of terrorist attacks that occur in a country to be correlated.
 
 This project was a good foray into the patterns in the GTD, but future research into filtered subsets of the GTD, as well as into exploring the relationship between the GTD and other datasets, is likely to produce novel results.
+
+\section{Appendix}
+
 
 \printbibliography
 
